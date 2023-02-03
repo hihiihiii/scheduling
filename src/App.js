@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { createGlobalStyle } from "styled-components";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Calendar from "./Pages/Calendar";
+import Modal from "./Components/Modal/Modal";
 
-function App() {
+import { TodoProvider } from "./TodoProvider";
+
+const GlobalStyled = createGlobalStyle`
+  *{
+    margin: 0;
+    padding : 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+  }
+  body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+`;
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <TodoProvider>
+        <GlobalStyled></GlobalStyled>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Calendar />}></Route>
+          </Routes>
+        </BrowserRouter>
+      </TodoProvider>
+    </>
   );
-}
+};
 
 export default App;
