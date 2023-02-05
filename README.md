@@ -4,7 +4,8 @@
 - scheduling
 
 #### 프로젝트 설명
-
+- Todolist에서 추가 하고 싶은 기능들을 추가한 scheduling 프로젝트입니다.
+- 날짜별로 일정을 추가, 삭제 할 수 있습니다.
 
 ### 라이브러리
 - react-router
